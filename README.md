@@ -1,4 +1,5 @@
 # Azure DevBox Automations
+Objective is to show how you could implement automations around Provisioning DevBox, including RBAC roles
 
 ## Scenario:
 - Deploy DevBox via IaC using bicep templates
