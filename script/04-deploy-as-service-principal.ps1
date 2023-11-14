@@ -5,6 +5,7 @@ if ($null -eq $env:servicePrincipalPassword) {
     $env:servicePrincipalPassword =  (Get-Credential -UserName $env:servicePrincipalId).GetNetworkCredential().Password
 }
 
+
 if ($null -eq $env:servicePrincipalPassword) {
     throw "Failed to get credentials"
 }

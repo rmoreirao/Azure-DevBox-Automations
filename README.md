@@ -13,9 +13,6 @@ Objective is to show how you could implement automations around Provisioning Dev
 - 2) mainProject.bicep: Deploy the Project and Specific Resources: Project, Project Role Assignments, Network Connection and DevBox Pools
 
 ## Execute from a Service Principal
-- Have a Service Principal created
-### To run the commands as a Service Principal
-https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli-service-principal
 - Grant Service Principal the following access permissions:
     
 | Responsibilities / Actions            | Subscription       | RBAC Role            | Scope                                                  |
