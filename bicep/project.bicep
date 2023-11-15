@@ -69,6 +69,7 @@ module devCenterPools 'modules/DevCenterProjectPools.bicep' = [for (pool, i) in 
   name: '${devCenterProject.name}pool${i}'
   dependsOn: [
     devCenterNetworkConnection
+    devCenterNetworkAttach
   ]
   params: {
     location: location

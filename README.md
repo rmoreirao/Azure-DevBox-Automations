@@ -4,15 +4,25 @@
 # Azure DevBox Automations
 Objective is to show how you could implement automations around Provisioning DevBox, including RBAC roles
 
-## Pre Reqs
-- Have VNet and SubNet for each Project
+# Architecture
+![Architecture Diagram](diagram\Architecture.png)
+Some considerations:
+- DevCenter and DevBox Project are on different subscriptions
+- With that, users are able to control DevBox costs per Projects / Subscription
 
-## Generic Scenario:
+# Pre Reqs
+- Have VNet and SubNet for each Project
+- Have a user with Admin permissions on Tenant - required to create DevBox and run the scenarios
+
+# Automation - Deploy IaC using Bicep Templates using Service Principal:
 - Deploy DevBox via IaC using bicep templates
 - 1) mainDevCenter.bicep: Deploy the DevCenter and all related resources: Image Gallery and DevBox Definitions
 - 2) mainProject.bicep: Deploy the Project and Specific Resources: Project, Project Role Assignments, Network Connection and DevBox Pools
 
-## Execute from a Service Principal
+## To run this Scenario
+Execute the Powershell scripts in the "script" folder
+
+## Access Permissions for the Service Principal to deploy the Resources 
 - Grant Service Principal the following access permissions:
     
 | Responsibilities / Actions            | Subscription       | RBAC Role            | Scope                                                  |
@@ -21,6 +31,8 @@ Objective is to show how you could implement automations around Provisioning Dev
 | Create and Manage the Network Connections | VNet Subscription | Owner or Contributor | VNet Subscription or Resource Group |
 | Attach / Remove Network Connection to a Dev Center | DevCenter Subscription  | Owner or Contributor | DevCenter Subscription, Resource Group or Resource |
 | Create or Delete DevBox Project | DevCenter and Project Subscriptions  | Owner or Contributor | Subscription, Resource Group or Resource |
+
+
 
 # References:
 - This repo used the scripts from repo: https://github.com/PieterbasNagengast/Azure-DevBox
