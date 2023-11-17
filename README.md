@@ -1,6 +1,3 @@
-# TODO:
-- Create a Clean Up Script
-
 # Azure DevBox Automations
 Objective is to show how you could implement automations around Provisioning DevBox, including RBAC roles
 
