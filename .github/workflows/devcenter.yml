@@ -3,25 +3,28 @@ name: Deploy DevCenter
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
     steps:  
       # Checkout code
     - uses: actions/checkout@main
 
       # Log into Azure
     - uses: azure/login@v1
-      working-directory: 
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      # Deploy Bicep file
-    - name: deploy
-      uses: azure/arm-deploy@v1
+    # set Azure Subscription
+    - name: Set DevCenter Subscription
+      uses: azure/CLI@v1
       with:
-        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        resourceGroupName: ${{ secrets.AZURE_RG }}
-        template: ./main.bicep
-        parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
-        failOnStdErr: false
+        inlineScript: |
+          #!/bin/bash
+          az account set --subscription ${{ secrets.DEVCENTER_SUBSCRIPTION }}
 
-    
+    # Deploy DevCenter to Subscription
+    - name: Deploy DevCenter
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+          #!/bin/bash
+          cd bicep
+          az deployment group create --resource-group ${{ secrets.DEVCENTER_RG }} --parameters devCenter.bicepparam
