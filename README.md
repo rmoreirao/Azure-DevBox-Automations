@@ -5,7 +5,7 @@
 Objective is to show how you could implement automations around Provisioning DevBox, including RBAC roles
 
 # Architecture
-![Architecture Diagram](diagram/Architecture.png)
+![Architecture Diagram](diagram\Architecture.png)
 Some considerations:
 - DevCenter and DevBox Project are on different subscriptions
 - With that, users are able to control DevBox costs per Projects / Subscription
@@ -31,7 +31,6 @@ Execute the Powershell scripts in the "script" folder
 | Create and Manage the Network Connections | VNet Subscription | Owner or Contributor | VNet Subscription or Resource Group |
 | Attach / Remove Network Connection to a Dev Center | DevCenter Subscription  | Owner or Contributor | DevCenter Subscription, Resource Group or Resource |
 | Create or Delete DevBox Project | DevCenter and Project Subscriptions  | Owner or Contributor | Subscription, Resource Group or Resource |
-
 
 
 # References:
