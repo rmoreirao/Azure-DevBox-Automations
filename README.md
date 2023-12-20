@@ -2,7 +2,7 @@
 Objective is to show how you could implement automations around Provisioning DevBox, including RBAC roles
 
 # Architecture
-![Architecture Diagram](diagram\Architecture.png)
+![Architecture Diagram](diagram/Architecture.png)
 Some considerations:
 - DevCenter and DevBox Project are on different subscriptions
 - With that, users are able to control DevBox costs per Projects / Subscription
