@@ -3,13 +3,13 @@
 // az deployment sub create --location WestEurope  --parameters .\mainProject.Sub03.bicepparam
 
 
-using './project.bicep'
+using './02_project.bicep'
 
 param devCenterSubscriptionID = '91e4cd90-811e-45d3-a068-670b6f14f580'
 param devCenterName = 'DevCenterMultiSub'
 param devCenterResourceGroupName = 'rg-devcenter-multisub'
 
-param virtualNetworkName = 'VnetSub03-WE-DevBox'
+param networkConnectionName = 'VnetSub03-WE-DevBox'
 param virtualNetworkSubnetID = '/subscriptions/e4c095f5-0fb6-485c-9c13-22f5f97ab428/resourceGroups/rg-devbox-sub03/providers/Microsoft.Network/virtualNetworks/vn-devbox-sub03/subnets/devbox'
 
 param projectName = 'ProjectMultiSub03'
@@ -18,7 +18,7 @@ param projectPools = [
   {
     name: 'W11_M365-Pool'
     definitionName: 'W11_M365' // must be the same as the name in the param definitions block
-    networkConnectionName: virtualNetworkName // must be the same as the networkConnectionName in the networks parameter block
+    networkConnectionName: networkConnectionName // must be the same as the networkConnectionName in the networks parameter block
     localAdministrator: 'Enabled'
     stopOnDisconnect: 'Disabled'
     gracePeriodMinutes: 60

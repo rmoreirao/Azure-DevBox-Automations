@@ -3,15 +3,14 @@
 // az deployment sub create --location WestEurope  --parameters .\mainProject.Sub02.bicepparam
 
 
-using './project.bicep'
+using './02_project.bicep'
 
 param devCenterSubscriptionID = '91e4cd90-811e-45d3-a068-670b6f14f580'
 param devCenterName = 'DevCenterMultiSub'
 param devCenterResourceGroupName = 'rg-devcenter-multisub-test-01'
 
-param virtualNetworkResourceGroupName = 'VnetSub02-WE-DevBox'
-param virtualNetworkName = 'VnetSub02-WE-DevBox'
-param virtualNetworkSubnetID = '/subscriptions/4c3f03bc-ab2c-4b0a-aa11-9fbc90cc7a58/resourceGroups/rg-devbox-vnet-sub02-tst/providers/Microsoft.Network/virtualNetworks/vn-devbox-sub02-tst/subnets/devbox-subnet-sub02-tst'
+param networkConnectionName = 'VnetSub02-WE-DevBox'
+param virtualNetworkSubnetID = '/subscriptions/4c3f03bc-ab2c-4b0a-aa11-9fbc90cc7a58/resourceGroups/rg-devbox-vnet-sub02/providers/Microsoft.Network/virtualNetworks/vn-devbox-sub02/subnets/devbox-subnet-sub02'
 
 param projectName = 'ProjectMultiSub02'
 param projectDescription = 'ProjectMultiSub02 Description'
@@ -19,7 +18,7 @@ param projectPools = [
   {
     name: 'W11-Pool'
     definitionName: 'W11' // must be the same as the name in the param definitions block
-    networkConnectionName: virtualNetworkName // must be the same as the networkConnectionName in the networks parameter block
+    networkConnectionName: networkConnectionName // must be the same as the networkConnectionName in the networks parameter block
     localAdministrator: 'Enabled'
     stopOnDisconnect: 'Disabled'
     gracePeriodMinutes: 60
@@ -31,7 +30,7 @@ param projectPools = [
   {
     name: 'W11_M365_VS2022-Pool'
     definitionName: 'W11_M365_VS2022' // must be the same as the name in the param definitions block
-    networkConnectionName: virtualNetworkName // must be the same as the networkConnectionName in the networks parameter block
+    networkConnectionName: networkConnectionName // must be the same as the networkConnectionName in the networks parameter block
     localAdministrator: 'Enabled'
     stopOnDisconnect: 'Enabled'
     gracePeriodMinutes: 60

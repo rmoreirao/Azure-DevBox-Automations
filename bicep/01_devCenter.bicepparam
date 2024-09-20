@@ -3,10 +3,11 @@
 // az account set --subscription 91e4cd90-811e-45d3-a068-670b6f14f580
 // az deployment group create --resource-group rg-devcenter-multisub  --parameters .\devCenter.bicepparam
 
-using './devCenter.bicep'
+using './01_devCenter.bicep'
 
 param DevCenterName = 'DevCenterMultiSub'
-
+param custoImageGalleryName = 'DevBoxImageGallery'
+param managedIdentityName = 'MIDevBoxMultiSub'
 
 param definitions = [
   {

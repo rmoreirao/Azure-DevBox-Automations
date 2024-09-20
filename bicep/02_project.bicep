@@ -18,8 +18,7 @@ param projectPools array
 
 param projectRoleAssignments array
 
-param virtualNetworkResourceGroupName string
-param virtualNetworkName string
+param networkConnectionName string
 param virtualNetworkSubnetID string
 
 
@@ -54,12 +53,12 @@ module devCenterNetworkConnection 'modules/DevCenterNetworkConnection.bicep' = {
 }
 
 module devCenterNetworkAttach 'modules/DevCenterNetworkAttach.bicep' = {
-  name: virtualNetworkName
+  name: networkConnectionName
   scope: resourceGroup(devCenterSubscriptionID, devCenterResourceGroupName)
   params: {
     devCenterName: devCenterName
     networkConnectionID: devCenterNetworkConnection.outputs.networkConnectionID
-    networkAttachName: virtualNetworkName
+    networkAttachName: networkConnectionName
   }
 }
 

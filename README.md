@@ -32,6 +32,7 @@ Execute the Powershell scripts in the "script" folder
 
 # References:
 - This repo used the scripts from repo: https://github.com/PieterbasNagengast/Azure-DevBox
+- This is another reference repo for the Image Gallery: https://github.com/luxu-ms/Devbox-ADE-Infra/
 - DevBox documentation for Permissions: https://learn.microsoft.com/en-us/azure/dev-box/ 
 - Bicep docs: https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-to-resource-group?tabs=azure-cli
 

@@ -7,9 +7,9 @@ $env:projectSubscriptionId="4c3f03bc-ab2c-4b0a-aa11-9fbc90cc7a58"
 $env:projectResourceGroupName="rg-devbox-project-sub02"
 
 $env:networkSubscriptionId="4c3f03bc-ab2c-4b0a-aa11-9fbc90cc7a58"
-$env:networkResourceGroupName="rg-devbox-vnet-sub02-tst"
-$env:networkVNetName="vn-devbox-sub02-tst"
-$env:networkSubnetName="devbox-subnet-sub02-tst"
+$env:networkResourceGroupName="rg-devbox-vnet-sub02"
+$env:networkVNetName="vn-devbox-sub02"
+$env:networkSubnetName="devbox-subnet-sub02"
 
 $env:servicePrincipalName="DevBoxServicePrincipalTst"
 

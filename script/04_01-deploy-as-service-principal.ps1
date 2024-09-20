@@ -11,10 +11,10 @@ $scriptsFolder = Get-Location
 Set-Location ..\bicep\
 Write-Host "Deploying the Dev Center to the Dev Center Subscription"
 az account set --subscription $env:devCenterSubscriptionId
-az deployment group create --resource-group $env:devCenterResourceGroup --parameters devCenter.bicepparam
+az deployment group create --resource-group $env:devCenterResourceGroup --parameters 01_devCenter.bicepparam
 
-Write-Host "Deploying the Project to the Dev Center Subscription"
+Write-Host "Deploying the Project to the Project Subscription"
 az account set --subscription $env:projectSubscriptionId
-az deployment group create --resource-group $env:projectResourceGroupName --parameters project.Sub02.bicepparam
+az deployment group create --resource-group $env:projectResourceGroupName --parameters 02_project.Sub02.bicepparam
 
 Set-Location $scriptsFolder
