@@ -5,12 +5,16 @@
 
 using './02_project.bicep'
 
-param devCenterSubscriptionID = '91e4cd90-811e-45d3-a068-670b6f14f580'
+param devCenterSubscriptionID = readEnvironmentVariable('devCenterSubscriptionId','Missing-devCenterSubscriptionId') // '91e4cd90-811e-45d3-a068-670b6f14f580'
 param devCenterName = 'DevCenterMultiSub'
-param devCenterResourceGroupName = 'rg-devcenter-multisub-test-01'
+param devCenterResourceGroupName = readEnvironmentVariable('devCenterResourceGroup','Missing-devCenterResourceGroup')  // 'rg-devcenter-multisub-test-01'
 
+var networkResourceGroupName = readEnvironmentVariable('networkResourceGroupName','Missing-networkResourceGroupName')
+var projectSubscriptionId = readEnvironmentVariable('projectSubscriptionId','Missing-projectSubscriptionId')
+var networkVNetName = readEnvironmentVariable('networkVNetName','Missing-networkVNetName')
+var networkSubnetName = readEnvironmentVariable('networkSubnetName','Missing-networkSubnetName')
+param virtualNetworkSubnetID = '/subscriptions/${projectSubscriptionId}/resourceGroups/${networkResourceGroupName}/providers/Microsoft.Network/virtualNetworks/${networkVNetName}/subnets/${networkSubnetName}'
 param networkConnectionName = 'VnetSub02-WE-DevBox'
-param virtualNetworkSubnetID = '/subscriptions/4c3f03bc-ab2c-4b0a-aa11-9fbc90cc7a58/resourceGroups/rg-devbox-vnet-sub02/providers/Microsoft.Network/virtualNetworks/vn-devbox-sub02/subnets/devbox-subnet-sub02'
 
 param projectName = 'ProjectMultiSub02'
 param projectDescription = 'ProjectMultiSub02 Description'
